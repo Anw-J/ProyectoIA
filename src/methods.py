@@ -1,0 +1,1 @@
+# Los métodos útiles (getters)
