@@ -1,0 +1,442 @@
+{
+    "stations": [
+        {
+            "name": "Observatorio",
+            "line": 1,
+            "connected_to": {
+                "Tacubaya": 1262
+            },
+            "coordinates": [
+                19.3983729488016,
+                -99.2002744168481
+            ]
+        },
+        {
+            "name": "Tacubaya",
+            "line": [
+                1,
+                7,
+                9
+            ],
+            "connected_to": {
+                "Observatorio": 1262,
+                "Constituyentes": 1005,
+                "San Pedro de los Pinos": 1084,
+                "Patriotismo": 1133,
+                "Juanacatlán": 1158
+            },
+            "coordinates": [
+                19.402592290271297,
+                -99.18762407821237
+            ]
+        },
+        {
+            "name": "Juanacatlán",
+            "line": 1,
+            "connected_to": {
+                "Tacubaya": 1158,
+                "Chapultepec": 973
+            },
+            "coordinates": [
+                19.4130500544283,
+                -99.18195543173522
+            ]
+        },
+        {
+            "name": "Chapultepec",
+            "line": 1,
+            "connected_to": {
+                "Juanacatlán": 973,
+                "Sevilla": 501
+            },
+            "coordinates": [
+                19.420732478539115,
+                -99.17694661817555
+            ]
+        },
+        {
+            "name": "Sevilla",
+            "line": 1,
+            "connected_to": {
+                "Chapultepec": 501,
+                "Insurgentes": 645
+            },
+            "coordinates": [
+                19.421820606836256,
+                -99.17100859257094
+            ]
+        },
+        {
+            "name": "Insurgentes",
+            "line": 1,
+            "connected_to": {
+                "Sevilla": 645,
+                "Cuauhtémoc": 793
+            },
+            "coordinates": [
+                19.424072154814183,
+                -99.16332220227521
+            ]
+        },
+        {
+            "name": "Cuauhtémoc",
+            "line": 1,
+            "connected_to": {
+                "Insurgentes": 793,
+                "Balderas": 409
+            },
+            "coordinates": [
+                19.4258671318003,
+                -99.15458270660797
+            ]
+        },
+        {
+            "name": "Balderas",
+            "line": [
+                1,
+                3
+            ],
+            "connected_to": {
+                "Cuauhtémoc": 409,
+                "Niños Héroes": 665,
+                "Juarez": 659
+            },
+            "coordinates": [
+                19.427237248807025,
+                -99.14899663722629
+            ]
+        },
+        {
+            "name": "Universidad",
+            "line": 3,
+            "connected_to": {
+                "Copilco": 1306
+            },
+            "coordinates": [
+                19.324429196459366,
+                -99.17392334727388
+            ]
+        },
+        {
+            "name": "Copilco",
+            "line": 3,
+            "connected_to": {
+                "Universidad": 1306,
+                "M.A. De Quevedo": 1295
+            },
+            "coordinates": [
+                19.336189601281077,
+                -99.17705993109762
+            ]
+        },
+        {
+            "name": "M.A. De Quevedo",
+            "line": 3,
+            "connected_to": {
+                "Copilco": 1295,
+                "Viveros": 824
+            },
+            "coordinates": [
+                19.3463907320009,
+                -99.1807498977596
+            ]
+        },
+        {
+            "name": "Viveros",
+            "line": 3,
+            "connected_to": {
+                "M.A. De Quevedo": 824,
+                "Coyoacán": 908
+            },
+            "coordinates": [
+                19.354054589742777,
+                -99.17539489067335
+            ]
+        },
+        {
+            "name": "Coyoacán",
+            "line": 3,
+            "connected_to": {
+                "Zapata": 1153,
+                "Viveros": 908
+            },
+            "coordinates": [
+                19.361386002971173,
+                -99.17088289478232
+            ]
+        },
+        {
+            "name": "Zapata",
+            "line": [
+                3,
+                12
+            ],
+            "connected_to": {
+                "Coyoacán": 1153,
+                "Parque de los Venados": 563,
+                "Hospital 20 de Noviembre": 450,
+                "División del Norte": 794
+            },
+            "coordinates": [
+                19.37075732651369,
+                -99.16504214585385
+            ]
+        },
+        {
+            "name": "División del Norte",
+            "line": 3,
+            "connected_to": {
+                "Zapata": 794,
+                "Eugenia": 715
+            },
+            "coordinates": [
+                19.379130402018625,
+                -99.15947440558465
+            ]
+        },
+        {
+            "name": "Eugenia",
+            "line": 3,
+            "connected_to": {
+                "División del Norte": 715,
+                "Etiopía": 950
+            },
+            "coordinates": [
+                19.386125846935006,
+                -99.15721898005215
+            ]
+        },
+        {
+            "name": "Etiopía",
+            "line": 3,
+            "connected_to": {
+                "Eugenia": 950,
+                "Centro Médico": 1119
+            },
+            "coordinates": [
+                19.395972428871314,
+                -99.15602632046716
+            ]
+        },
+        {
+            "name": "Centro Médico",
+            "line": [
+                3,
+                9
+            ],
+            "connected_to": {
+                "Etiopía": 1119,
+                "Lázaro Cárdenas": 1059,
+                "Chilpancingo": 1152,
+                "Hospital General": 653
+            },
+            "coordinates": [
+                19.406556127008756,
+                -99.15517677300488
+            ]
+        },
+        {
+            "name": "Hospital General",
+            "line": 3,
+            "connected_to": {
+                "Centro Médico": 653,
+                "Niños Héroes": 559
+            },
+            "coordinates": [
+                19.41378917739794,
+                -99.15321048957978
+            ]
+        },
+        {
+            "name": "Niños Héroes",
+            "line": 3,
+            "connected_to": {
+                "Hospital General": 559,
+                "Balderas": 665
+            },
+            "coordinates": [
+                19.419606146038547,
+                -99.15035884737405
+            ]
+        },
+        {
+            "name": "Juarez",
+            "line": 3,
+            "connected_to": {
+                "Balderas": 659
+            },
+            "coordinates": [
+                19.433263454896647,
+                -99.14763477627687
+            ]
+        },
+        {
+            "name": "Barranca del Muerto",
+            "line": 7,
+            "connected_to": {
+                "Mixcoac": 1476
+            },
+            "coordinates": [
+                19.361556995252595,
+                -99.18925537000993
+            ]
+        },
+        {
+            "name": "Mixcoac",
+            "line": [
+                7,
+                12
+            ],
+            "connected_to": {
+                "Barranca del Muerto": 1476,
+                "San Antonio": 788,
+                "Insurgentes Sur": 651
+            },
+            "coordinates": [
+                19.376201443137926,
+                -99.18782294292089
+            ]
+        },
+        {
+            "name": "San Antonio",
+            "line": 7,
+            "connected_to": {
+                "Mixcoac": 788,
+                "San Pedro de los Pinos": 606
+            },
+            "coordinates": [
+                19.384927061392638,
+                -99.18663315897948
+            ]
+        },
+        {
+            "name": "San Pedro de los Pinos",
+            "line": 7,
+            "connected_to": {
+                "San Antonio": 606,
+                "Tacubaya": 1084
+            },
+            "coordinates": [
+                19.391374073628203,
+                -99.18581075685759
+            ]
+        },
+        {
+            "name": "Constituyentes",
+            "line": 7,
+            "connected_to": {
+                "Tacubaya": 1005,
+                "Auditorio": 1430
+            },
+            "coordinates": [
+                19.41187308502165,
+                -99.19141529135834
+            ]
+        },
+        {
+            "name": "Auditorio",
+            "line": 7,
+            "connected_to": {
+                "Constituyentes": 1430,
+                "Polanco": 8112
+            },
+            "coordinates": [
+                19.425101702844245,
+                -99.19196637734476
+            ]
+        },
+        {
+            "name": "Polanco",
+            "line": 7,
+            "connected_to": {
+                "Auditorio": 8112
+            },
+            "coordinates": [
+                19.43382328731051,
+                -99.19136556252184
+            ]
+        },
+        {
+            "name": "Patriotismo",
+            "line": 9,
+            "connected_to": {
+                "Tacubaya": 1133,
+                "Chilpancingo": 955
+            },
+            "coordinates": [
+                19.406172126695378,
+                -99.17890422377327
+            ]
+        },
+        {
+            "name": "Chilpancingo",
+            "line": 9,
+            "connected_to": {
+                "Patriotismo": 955,
+                "Centro Médico": 1152
+            },
+            "coordinates": [
+                19.405934683029734,
+                -99.16845766882552
+            ]
+        },
+        {
+            "name": "Lázaro Cárdenas",
+            "line": 9,
+            "connected_to": {
+                "Centro Médico": 1059
+            },
+            "coordinates": [
+                19.407263665601924,
+                -99.1446244156983
+            ]
+        },
+        {
+            "name": "Insurgentes Sur",
+            "line": "12",
+            "connected_to": {
+                "Mixcoac": 651,
+                "Hospital 20 de Noviembre": 725
+            },
+            "coordinates": [
+                19.373711765666666,
+                -99.17878323553845
+            ]
+        },
+        {
+            "name": "Hospital 20 de Noviembre",
+            "line": 12,
+            "connected_to": {
+                "Insurgentes Sur": 725,
+                "Zapata": 450
+            },
+            "coordinates": [
+                19.372248010062258,
+                -99.17127717786695
+            ]
+        },
+        {
+            "name": "Parque de los Venados",
+            "line": 12,
+            "connected_to": {
+                "Zapata": 563,
+                "Eje Central": 1280
+            },
+            "coordinates": [
+                19.370721196935396,
+                -99.15875219135951
+            ]
+        },
+        {
+            "name": "Eje Central",
+            "line": 12,
+            "connected_to": {
+                "Parque de los Venados": 1280
+            },
+            "coordinates": [
+                19.361434985906012,
+                -99.15142083516702
+            ]
+        }
+    ]
+}
