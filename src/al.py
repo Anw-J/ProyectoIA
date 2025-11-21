@@ -6,7 +6,7 @@ import init
 class al:
     def __init__(self):
         self.data = self.import_data()
-        self.graph = self.create_graph()
+        self.graph = self.create_graph(self.data)
 
     @staticmethod
     def import_data():
@@ -15,9 +15,9 @@ class al:
         return data
 
     @staticmethod
-    def create_graph(self):
+    def create_graph(data):
         g = nx.Graph()
-        for s1 in self.data['stations']:
+        for s1 in data['stations']:
             g.add_node(s1["name"])
             for s2, distance in s1['connected to'].items():
                  g.add_edge(s1['name'], s2, weight=distance)
