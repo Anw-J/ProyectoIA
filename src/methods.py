@@ -21,7 +21,7 @@ def get_h(sation1, station2):
     coords_1 = get_coords(sation1)
     coords_2 = get_coords(station2)
     if coords_1 is None or coords_2 is None:
-        return -1
+        return 0
     return geopy.distance.distance(coords_1, coords_2).m
 
 
