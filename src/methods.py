@@ -45,3 +45,8 @@ def get_line(station):
         if station == s["name"]:
             return s["line"]
     return None
+
+
+def get_all_stations():
+    stations = [s["name"] for s in init.data.get("stations", [])]
+    return sorted(stations)

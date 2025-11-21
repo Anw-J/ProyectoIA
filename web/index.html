@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RUTA METRO</title>
+    <style>
+        .contenedor {
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body style="background-color: #F4F4F4">
+    <div style="text-align: center; background-color: #0078D7;">
+        <h1 style="font-size: 70px; font-family: monospace; color: white">Calcula tu ruta</h1>
+    </div>
+
+
+    <div class="contenedor">
+        <div>
+            <img src="../ReducedMap.png" style="width: 600px; height: auto">
+        </div>
+
+        <div>
+            <form action="/route" method="post">
+                <label for="origin" style="font-size: 20px; font-family: arial;">Estación de origen:</label>
+                <select id="origin" name="origin" required style="font-size: 16px; font-family: arial;">
+                    <option value="" disabled selected>-- Seleccione origen --</option>
+                    {% for s in stations %}
+                        <option value="{{ s }}">{{ s }}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <label for="destination" style="font-size: 20px; font-family: arial;">Estación de destino:</label>
+                <select id="destination" name="destination" required style="font-size: 16px; font-family: arial;">
+                    <option value="" disabled selected>-- Seleccione destino --</option>
+                    {% for s in stations %}
+                        <option value="{{ s }}">{{ s }}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <input type="submit" value="Calcular" style="font-size: 20px; font-family: arial; font-weight: bold; background-color: #0078D7; color: white; border: none; padding: 10px 20px; cursor: pointer;">
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>
