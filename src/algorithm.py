@@ -7,23 +7,32 @@ import init
 init.init()
 G = nx.Graph()
 for s in init.data["stations"]:
-    G.add_node(s["name"])
     station1 = s["name"]
+    G.add_node(station1)
     for station2, distance in s["connected_to"].items():
         G.add_edge(station1, station2, weight=distance)
 
 
-pos = nx.spring_layout(G, seed=42)
+def get_best_path(origin, destination):
+    path = nx.astar_path(G, origin, destination, heuristic=get_h, weight='weight')
+    length = nx.astar_path_length(G, origin, destination, heuristic=get_h, weight='weight')
+    return path, length
+
+
+if __name__ == "__main__":
+    origin = input("Origen: ").strip()
+    destination = input("Destino: ").strip()
+    path, length = get_best_path(origin, destination)
+    print("Camino encontrado:", path)
+    print("Longitud del camino (m):", length)
+
+
+
+
+'''pos = nx.spring_layout(G, seed=42)
 nx.draw(G, pos, with_labels=True, node_size=700, node_color="#3A7BDC", font_size=9)
 edge_labels = nx.get_edge_attributes(G, "weight")
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=8)
-plt.show()
+plt.show()'''
 
-
-start = "Observatorio"
-final = "Universidad"
-path = nx.astar_path(G, start, final, heuristic=get_h, weight='weight')
-length = nx.astar_path_length(G, start, final, heuristic=get_h, weight='weight')
-print("Camino encontrado:", path)
-print("Longitud del camino (m):", length)
 
