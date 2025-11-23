@@ -1,6 +1,7 @@
 # Los métodos útiles (getters)
-import geopy.distance
+#import geopy.distance
 import init
+import al2
 
 LINE_COLORS = {
     "1": "#d35590",
@@ -10,7 +11,7 @@ LINE_COLORS = {
     "12": "#b89d4e"
 }
 
-def get_coords(station):
+'''def get_coords(station):
     for s in init.data["stations"]:
         if station == s["name"]:
             return s["coordinates"]
@@ -41,7 +42,7 @@ def get_f(station1, station2):
     if g == -1 or h == -1:
         return -1
     return g + h
-
+'''
 def get_lines(station):
     for s in init.data["stations"]:
         if station == s["name"]:
@@ -70,3 +71,7 @@ def get_colors_of_path(path):
         line = get_line_between(station1, station2)
         lines.append(line)
     return [LINE_COLORS.get(str(line)) for line in lines]
+
+def get_best_path(origin, destination):
+    g = al2.Data().get_graph()
+    return al2.Al().astar_algorithm(g, origin, destination)
