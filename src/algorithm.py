@@ -1,5 +1,5 @@
 # Algoritmo A*
-from methods import get_connected_stations, get_coords, get_f, get_g, get_h, get_line
+from methods import get_connected_stations, get_coords, get_f, get_g, get_h
 import networkx as nx
 import matplotlib.pyplot as plt
 import init
@@ -15,24 +15,26 @@ for s in init.data["stations"]:
 
 def get_best_path(origin, destination):
     path = nx.astar_path(G, origin, destination, heuristic=get_h, weight='weight')
-    length = nx.astar_path_length(G, origin, destination, heuristic=get_h, weight='weight')
-    return path, length
+    return path
 
 
 if __name__ == "__main__":
     origin = input("Origen: ").strip()
     destination = input("Destino: ").strip()
-    path, length = get_best_path(origin, destination)
+    path = get_best_path(origin, destination)
     print("Camino encontrado:", path)
-    print("Longitud del camino (m):", length)
 
 
-
-
-'''pos = nx.spring_layout(G, seed=42)
+'''
+pos = nx.spring_layout(G, seed=42)
 nx.draw(G, pos, with_labels=True, node_size=700, node_color="#3A7BDC", font_size=9)
 edge_labels = nx.get_edge_attributes(G, "weight")
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=8)
-plt.show()'''
+plt.show()
+'''
+
+
+
+
 
 

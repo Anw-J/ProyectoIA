@@ -19,7 +19,7 @@ class al:
         g = nx.Graph()
         for s1 in data['stations']:
             g.add_node(s1['name'], coordinates=s1['coordinates'])
-            for s2, distance in s1['connected to'].items():
+            for s2, distance in s1['connected_to'].items():
                  g.add_edge(s1['name'], s2, weight=distance)
         return g
 
