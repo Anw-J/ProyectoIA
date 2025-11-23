@@ -393,7 +393,7 @@
         },
         {
             "name": "Insurgentes Sur",
-            "line": "12",
+            "line": 12,
             "connected_to": {
                 "Mixcoac": 651,
                 "Hospital 20 de Noviembre": 725
