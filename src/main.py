@@ -1,12 +1,10 @@
 # Punto de entrada
 import init
 import webbrowser
-from methods import get_all_stations
+import al
+from methods import get_all_stations, get_colors_of_path
 from flask import Flask, render_template, request
-
 from src.algorithm import get_best_path
-
-init.init()
 
 app = Flask(
     __name__,
@@ -22,14 +20,23 @@ def index():
 def route():
     origin = request.form.get("origin")
     destination = request.form.get("destination")
-    path, length = get_best_path(origin, destination)
-    return render_template("index.html", path=path, length=length, origin=origin, destination=destination, stations=get_all_stations())
-
-
-def open_html():
-    webbrowser.open("http://127.0.0.1:5000/")
+    '''
+    ala = al.al()
+    path = ala.astar_algorithm(ala.graph, origin, destination)
+    '''
+    path = get_best_path(origin, destination)
+    colors = get_colors_of_path(path)
+    return render_template(
+        "index.html",
+        path=path,
+        origin=origin,
+        destination=destination,
+        stations=get_all_stations(),
+        colors=colors
+    )
 
 if __name__ == "__main__":
-    open_html()
+    init.init()
+    webbrowser.open("http://127.0.0.1:5000/")
     app.run(debug=True, use_reloader=False)
 
