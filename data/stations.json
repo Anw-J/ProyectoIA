@@ -23,7 +23,7 @@
                 "Constituyentes": 1005,
                 "San Pedro de los Pinos": 1084,
                 "Patriotismo": 1133,
-                "Juanacatlan": 1158
+                "Juanacatlán": 1158
             },
             "coordinates": [
                 19.402592290271297,
@@ -31,7 +31,7 @@
             ]
         },
         {
-            "name": "Juanacatlan",
+            "name": "Juanacatlán",
             "line": 1,
             "connected_to": {
                 "Tacubaya": 1158,
@@ -46,7 +46,7 @@
             "name": "Chapultepec",
             "line": 1,
             "connected_to": {
-                "Juanacatlan": 973,
+                "Juanacatlán": 973,
                 "Sevilla": 501
             },
             "coordinates": [
@@ -71,7 +71,7 @@
             "line": 1,
             "connected_to": {
                 "Sevilla": 645,
-                "Cuauhtemoc": 793
+                "Cuauhtémoc": 793
             },
             "coordinates": [
                 19.424072154814183,
@@ -79,7 +79,7 @@
             ]
         },
         {
-            "name": "Cuauhtemoc",
+            "name": "Cuauhtémoc",
             "line": 1,
             "connected_to": {
                 "Insurgentes": 793,
@@ -97,9 +97,9 @@
                 3
             ],
             "connected_to": {
-                "Cuauhtemoc": 409,
-                "Ninos Heroes": 665,
-                "Juarez": 659
+                "Cuauhtémoc": 409,
+                "Niños Héroes": 665,
+                "Juárez": 659
             },
             "coordinates": [
                 19.427237248807025,
@@ -146,7 +146,7 @@
             "line": 3,
             "connected_to": {
                 "M.A. De Quevedo": 824,
-                "Coyoacan": 908
+                "Coyoacán": 908
             },
             "coordinates": [
                 19.354054589742777,
@@ -154,7 +154,7 @@
             ]
         },
         {
-            "name": "Coyoacan",
+            "name": "Coyoacán",
             "line": 3,
             "connected_to": {
                 "Zapata": 1153,
@@ -172,10 +172,10 @@
                 12
             ],
             "connected_to": {
-                "Coyoacan": 1153,
+                "Coyoacán": 1153,
                 "Parque de los Venados": 563,
                 "Hospital 20 de Noviembre": 450,
-                "Division del Norte": 794
+                "División del Norte": 794
             },
             "coordinates": [
                 19.37075732651369,
@@ -183,7 +183,7 @@
             ]
         },
         {
-            "name": "Division del Norte",
+            "name": "División del Norte",
             "line": 3,
             "connected_to": {
                 "Zapata": 794,
@@ -198,8 +198,8 @@
             "name": "Eugenia",
             "line": 3,
             "connected_to": {
-                "Division del Norte": 715,
-                "Etiopia": 950
+                "División del Norte": 715,
+                "Etiopía": 950
             },
             "coordinates": [
                 19.386125846935006,
@@ -207,11 +207,11 @@
             ]
         },
         {
-            "name": "Etiopia",
+            "name": "Etiopía",
             "line": 3,
             "connected_to": {
                 "Eugenia": 950,
-                "Centro Medico": 1119
+                "Centro Médico": 1119
             },
             "coordinates": [
                 19.395972428871314,
@@ -219,14 +219,14 @@
             ]
         },
         {
-            "name": "Centro Medico",
+            "name": "Centro Médico",
             "line": [
                 3,
                 9
             ],
             "connected_to": {
-                "Etiopia": 1119,
-                "Lazaro Cardenas": 1059,
+                "Etiopía": 1119,
+                "Lázaro Cárdenas": 1059,
                 "Chilpancingo": 1152,
                 "Hospital General": 653
             },
@@ -239,8 +239,8 @@
             "name": "Hospital General",
             "line": 3,
             "connected_to": {
-                "Centro Medico": 653,
-                "Ninos Heroes": 559
+                "Centro Médico": 653,
+                "Niños Héroes": 559
             },
             "coordinates": [
                 19.41378917739794,
@@ -248,7 +248,7 @@
             ]
         },
         {
-            "name": "Ninos Heroes",
+            "name": "Niños Héroes",
             "line": 3,
             "connected_to": {
                 "Hospital General": 559,
@@ -260,7 +260,7 @@
             ]
         },
         {
-            "name": "Juarez",
+            "name": "Juárez",
             "line": 3,
             "connected_to": {
                 "Balderas": 659
@@ -373,7 +373,7 @@
             "line": 9,
             "connected_to": {
                 "Patriotismo": 955,
-                "Centro Medico": 1152
+                "Centro Médico": 1152
             },
             "coordinates": [
                 19.405934683029734,
@@ -381,10 +381,10 @@
             ]
         },
         {
-            "name": "Lazaro Cardenas",
+            "name": "Lázaro Cárdenas",
             "line": 9,
             "connected_to": {
-                "Centro Medico": 1059
+                "Centro Médico": 1059
             },
             "coordinates": [
                 19.407263665601924,

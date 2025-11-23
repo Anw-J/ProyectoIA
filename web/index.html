@@ -15,7 +15,7 @@
 
         h1 {
             font-size: 70px;
-            font-family: monospace;
+            font-family: arial;
             color: white;
         }
 
@@ -25,9 +25,24 @@
             gap: 20px;
         }
 
+        .map {
+            background-color: #FFF;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 13px;
+            align-self: flex-start;
+        }
+
         img {
             width: 600px;
-            height: auto
+            height: auto;
+            border-radius: 13px;
+        }
+
+        .search {
+            background-color: #FFF;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 13px;
         }
 
         label {
@@ -38,6 +53,7 @@
         select {
             font-size: 16px;
             font-family: arial;
+            border-radius: 4px;
         }
 
         input {
@@ -49,10 +65,17 @@
             border: none;
             padding: 10px 20px;
             cursor: pointer;
+            border-radius: 4px;
         }
 
         .result {
             font-family: arial;
+            background-color: #FFF;
+            padding: 20px;
+            padding-top: 2px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 13px;
+            margin-top: 20px;
         }
 
         ol {
@@ -98,12 +121,12 @@
 
     <div class="container">
 
-        <div>
+        <div class="map">
             <img src="{{ url_for('static', filename='ReducedMap.png') }}">
         </div>
 
         <div>
-            <div>
+            <div class="search">
                 <form action="/route" method="post">
                     <label for="origin">Estación de origen:</label>
                     <select id="origin" name="origin" required>
@@ -127,11 +150,12 @@
                 </form>
             </div>
 
-            <div class="result">
-                {% if path %}
+            {% if path %}
+                <div class="result">
                     <h2>Ruta calculada</h2>
-                    <p><strong>Origen:</strong>{{ origin }}</p>
-                    <p><strong>Destino:</strong>{{ destination }}</p>
+                    <p><strong>Origen: </strong>{{ origin }}</p>
+                    <p><strong>Destino: </strong>{{ destination }}</p>
+                    <p><strong>Tiempo estimado: </strong>{{ time }} min</p>
                     <p><strong>Ruta:</strong></p>
                     <ol>
                         {% for station in path %}
@@ -148,8 +172,8 @@
                             </li>
                         {% endfor %}
                     </ol>
-                {% endif %}
-            </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 </body>
