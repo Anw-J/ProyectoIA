@@ -1,8 +1,12 @@
 # Punto de entrada
-import init
 import webbrowser
-from methods import get_all_stations, get_colors_of_path, get_best_path
+import calendar
+from datetime import datetime
 from flask import Flask, render_template, request
+from methods import Methods
+from data import Data
+from algorithm import Al
+
 
 app = Flask(
     __name__,
@@ -12,28 +16,41 @@ app = Flask(
 
 @app.route("/")
 def index():
-    return render_template("index.html", stations=get_all_stations())
+    return render_template("index.html", stations=methods.get_all_stations())
 
 @app.route("/route", methods=["POST"])
 def route():
     origin = request.form.get("origin")
     destination = request.form.get("destination")
+    travel_date = request.form.get("travel_date")
+    travel_time = request.form.get("travel_time")
+    travel_date = change_date_format(travel_date)
 
-    path, time = get_best_path(origin, destination)
+    path, time, real_departure_dt, arrival_dt = Al().astar_algorithm(g, origin, destination, travel_date, travel_time)
 
-    colors = get_colors_of_path(path)
+    colors = methods.get_colors_of_path(path)
+
     return render_template(
         "index.html",
-        path=path,
         origin=origin,
         destination=destination,
-        stations=get_all_stations(),
-        colors=colors,
-        time=round(time)
+        path=path,
+        time=round(time),
+        real_departure_dt=real_departure_dt,
+        arrival_dt=arrival_dt,
+        stations=methods.get_all_stations(),
+        colors=colors
     )
 
+def change_date_format(html_date: str):
+    dt = datetime.strptime(html_date, "%Y-%m-%d").date()
+    return f"{dt.day} {calendar.month_name[dt.month]} {dt.year}"
+
 if __name__ == "__main__":
-    init.init()
+    methods = Methods(Data())
+    g = Data().get_graph()
     webbrowser.open("http://127.0.0.1:5000/")
     app.run(debug=True, use_reloader=False)
+
+
 
