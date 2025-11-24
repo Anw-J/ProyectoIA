@@ -13,13 +13,8 @@
             background-color: #0078D7;
         }
 
-        h1 {
-            font-size: 70px;
-            font-family: arial;
-            color: white;
-        }
-
         .container {
+            margin-top: 20px;
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -47,18 +42,18 @@
 
         label {
             font-size: 20px;
-            font-family: arial;
+            font-family: calibri;
         }
 
         select {
             font-size: 16px;
-            font-family: arial;
+            font-family: calibri;
             border-radius: 4px;
         }
 
         .submit {
             font-size: 20px;
-            font-family: arial;
+            font-family: calibri;
             font-weight: bold;
             background-color: #0078D7;
             color: white;
@@ -69,7 +64,7 @@
         }
 
         .result {
-            font-family: arial;
+            font-family: calibri;
             background-color: #FFF;
             padding: 20px;
             padding-top: 2px;
@@ -78,21 +73,22 @@
             margin-top: 20px;
         }
 
-        ol {
+        ul {
+            list-style-type: none;
             margin:0;
-            font-family:arial;
-            font-size:16px;
+            font-family: calibri;
+            font-size: 16px;
         }
 
         .station-row {
-            display:flex;
+            display: flex;
         }
 
         .color-column {
             display:flex;
-            flex-direction:column;
-            align-items:center;
-            width:24px;
+            flex-direction: column;
+            align-items: center;
+            width: 24px;
         }
 
         .color-dot {
@@ -101,26 +97,26 @@
             background: #FFF;
             border-radius: 50%;
             border: 2px solid #000;
-            z-index:2
+            z-index: 2
         }
 
         .color-bar {
-            width:14px;
-            height:30px;
-            margin-top:-3px;
-            margin-bottom:-3px;
-            z-index:1
+            width: 14px;
+            height: 30px;
+            margin-top: -3px;
+            margin-bottom: -3px;
+            z-index: 1
         }
 
         .date_selector {
             font-size: 16px;
-            font-family: arial;
+            font-family: calibri;
             border-radius: 4px;
         }
 
         .time_selector {
             font-size: 16px;
-            font-family: arial;
+            font-family: calibri;
             border-radius: 4px;
         }
 
@@ -182,7 +178,7 @@
                     <p><strong>Llegada: </strong>{{ arrival_dt }}</p>
                     <p><strong>Tiempo estimado: </strong>{{ time }} min</p>
                     <p><strong>Ruta:</strong></p>
-                    <ol>
+                    <ul>
                         {% for station in path %}
                             <li>
                                 <div class="station-row">
@@ -190,7 +186,6 @@
                                         {% if loop.index0 < (times|length) %}
                                             {{ times[loop.index0] }}
                                         {% endif %}
-
                                     </div>
                                     <div class="color-column">
                                         <div class="color-dot"></div>
@@ -202,7 +197,7 @@
                                 </div>
                             </li>
                         {% endfor %}
-                    </ol>
+                    </ul>
                 </div>
             {% endif %}
         </div>

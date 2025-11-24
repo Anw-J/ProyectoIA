@@ -1,5 +1,6 @@
 class Methods:
     LINE_COLORS = {
+        0: "#E6E6E6",
         1: "#d35590",
         3: "#9e9a3a",
         7: "#df8600",
@@ -42,7 +43,7 @@ class Methods:
         for i in range(len(path) - 1):
             station1 = path[i]
             station2 = path[i + 1]
-            line = self.get_line_between(station1, station2)
+            line = self.get_line_between(station1, station2) if station1 != station2 else 0
             lines.append(line)
         return [self.LINE_COLORS.get(line) for line in lines]
 
