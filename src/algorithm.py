@@ -43,32 +43,49 @@ class Al:
 
             if current == end_point:
                 path = []
-                while current in visited:
-                    path.append(current)
-                    current = visited[current]
-                path.append(start_point)
-                path.reverse()
+                times = []
+                while current != start_point:
+                    predecessor, has_transshipment = visited[current]
 
-                arrival_dt = real_departure_dt + timedelta(minutes=g_acc[end_point])
+                    path.append(current)
+                    next_time = real_departure_dt + timedelta(minutes=g_acc[current])
+                    next_time_str = next_time.strftime("%H:%M")
+                    times.append(next_time_str)
+                    if has_transshipment:
+                        next_time = real_departure_dt + timedelta(minutes=g_acc[predecessor])
+                        next_time += timedelta(minutes=self.transshipment)
+                        next_time_str = next_time.strftime("%H:%M")
+                        times.append(next_time_str)
+                        path.append(predecessor)
+
+                    # current = visited[current]
+                    current = predecessor
+                path.append(start_point)
+                next_time = real_departure_dt
+                next_time_str = next_time.strftime("%H:%M")
+                times.append(next_time_str)
+                path.reverse()
+                times.reverse()
                 locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+                arrival_dt = real_departure_dt + timedelta(minutes=g_acc[end_point])
                 real_departure_dt = real_departure_dt.strftime("%H:%M, %A, %d %B %Y")
                 arrival_dt = arrival_dt.strftime("%H:%M, %A, %d %B %Y")
 
-                return path, g_acc[end_point], real_departure_dt, arrival_dt
+                return path, times, g_acc[end_point], real_departure_dt, arrival_dt
 
             for n in graph.neighbors(current):
                 possible_g = g_acc[current] + graph.get_edge_data(current, n)['weight'] / self.velocity + self.stop_time
-
                 line_between = methods.get_line_between(current, n)
+                has_trasnshipment = False
                 if line_acc[current] is not None and line_acc[current] != line_between:
+                    has_trasnshipment = True
                     possible_g += self.transshipment
                     interval_between = methods.get_line_interval(int(line_between))
                     if interval_between is not None:
                         possible_g += (interval_between - (g_acc[current] % interval_between)) % interval_between
 
                 if possible_g < g_acc[n]:
-                    print(current, '->', n, ': g = %.2f' % possible_g)
-                    visited[n] = current
+                    visited[n] = (current, has_trasnshipment)
                     g_acc[n] = possible_g
                     f_acc[n] = possible_g + self.h(graph, n, end_point)
                     line_acc[n] = line_between

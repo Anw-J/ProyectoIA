@@ -23,11 +23,14 @@ def route():
     origin = request.form.get("origin")
     destination = request.form.get("destination")
     travel_date = request.form.get("travel_date")
+    html_date = travel_date
     travel_time = request.form.get("travel_time")
+    html_time = travel_time
     travel_date = change_date_format(travel_date)
 
-    path, time, real_departure_dt, arrival_dt = Al().astar_algorithm(g, origin, destination, travel_date, travel_time)
 
+    path, times, time, real_departure_dt, arrival_dt = Al().astar_algorithm(g, origin, destination, travel_date, travel_time)
+    print(times)
     colors = methods.get_colors_of_path(path)
 
     return render_template(
@@ -38,8 +41,11 @@ def route():
         time=round(time),
         real_departure_dt=real_departure_dt,
         arrival_dt=arrival_dt,
+        times=times,
         stations=methods.get_all_stations(),
-        colors=colors
+        colors=colors,
+        html_date=html_date,
+        html_time=html_time
     )
 
 def change_date_format(html_date: str):
