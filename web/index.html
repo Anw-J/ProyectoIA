@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!-- Para mostrar correctamente los tildes etc -->
     <title>RUTA METRO</title>
+    <!-- Todos los style aquí para facilitar la implementacion y modificación -->
     <style>
         body {
             background-color: #F4F4F4;
@@ -129,19 +130,28 @@
 </head>
 
 <body>
+    <!-- Muestra el logo en el header -->
     <header>
         <img class="logo" src="{{ url_for('static', filename='Logo.png') }}">
     </header>
 
+    <!-- Contenedor que ordena los componentes horizontalmente -->
     <div class="container">
 
+        <!-- Por la izquierda la mapa de metro -->
         <div class="map">
             <img src="{{ url_for('static', filename='ReducedMap.png') }}">
         </div>
 
+        <!-- Por la derecha el bloque de búsqueda y resultado -->
         <div>
+            <!-- El bloque de búsqueda -->
             <div class="search">
+                <!-- Un formulario -->
                 <form action="/route" method="post">
+
+                    <!-- Selector para origen desde la lista de estaciones proporcionada -->
+                    <!-- Se mantiene los campos seleccionados tras enviar el formulario -->
                     <label for="origin">Estación de origen:</label>
                     <select id="origin" name="origin" required>
                         <option value="" disabled {% if not origin %}selected{% endif %}>-- Seleccione origen --</option>
@@ -151,6 +161,8 @@
                     </select>
                     <br><br>
 
+                    <!-- Selector para destino desde la lista de estaciones proporcionada -->
+                    <!-- Se mantiene los campos seleccionados tras enviar el formulario -->
                     <label for="destination">Estación de destino:</label>
                     <select id="destination" name="destination" required>
                         <option value="" disabled {% if not destination %}selected{% endif %}>-- Seleccione destino --</option>
@@ -160,17 +172,23 @@
                     </select>
                     <br><br>
 
+                    <!-- Para seleccioanr la fecha y la hora de salida -->
+                    <!-- Se mantiene los campos seleccionados tras enviar el formulario -->
                     <label for="travel_date">Salir a las:</label>
                     <input class="date_selector" type="date" id="travel_date" name="travel_date" required value="{{ html_date }}">
                     <input class="time_selector" type="time" id="travel_time" name="travel_time" required value="{{ html_time }}">
                     <br><br>
 
+                    <!-- Botón para enviar el formulario -->
                     <input class="submit" type="submit" value="Calcular">
+
                 </form>
             </div>
 
+            <!-- El bloque de resultado -->
             {% if path %}
                 <div class="result">
+                    <!-- Mostrar las informaciones del resultado -->
                     <h2>Ruta calculada</h2>
                     <p><strong>Origen: </strong>{{ origin }}</p>
                     <p><strong>Destino: </strong>{{ destination }}</p>
@@ -178,26 +196,35 @@
                     <p><strong>Llegada: </strong>{{ arrival_dt }}</p>
                     <p><strong>Tiempo estimado: </strong>{{ time }} min</p>
                     <p><strong>Ruta:</strong></p>
+
+                    <!-- Una lista para mostrar la ruta -->
                     <ul>
                         {% for station in path %}
+                            <!-- Cada elemento de la lista -->
                             <li>
                                 <div class="station-row">
+                                    <!-- Mostrar la hora en cada parada -->
                                     <div>
                                         {% if loop.index0 < (times|length) %}
                                             {{ times[loop.index0] }}
                                         {% endif %}
                                     </div>
+                                    <!-- Iconos para visualizar la ruta y las líneas cogidas -->
                                     <div class="color-column">
+                                        <!-- Un círculo que representa una estación -->
                                         <div class="color-dot"></div>
+                                        <!-- Una barra de color que representa la línea cogida -->
                                         {% if loop.index0 < (path|length - 1) %}
                                             <div class="color-bar" style="background: {{ colors[loop.index0] }};"></div>
                                         {% endif %}
                                     </div>
+                                    <!-- Muestra el nombre de la estación -->
                                     <div>{{ station }}</div>
                                 </div>
                             </li>
                         {% endfor %}
                     </ul>
+
                 </div>
             {% endif %}
         </div>

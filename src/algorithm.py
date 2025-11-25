@@ -31,7 +31,6 @@ class Al:
     '''
     def astar_algorithm(self, graph, start_point, end_point, departure_date, departure_time):
         methods = Methods(Data()) # Instancia de la clase Methods
-        locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8') # Configurar a la localización española para el uso de las fechas
 
         dt = datetime.strptime(f"{departure_date} {departure_time}", "%d %B %Y %H:%M") # Fecha y hora de salida
         weekday = dt.weekday() # Día de la semana (0 -> lunes, 6 -> domingo)
@@ -84,6 +83,7 @@ class Al:
                 times.reverse()
 
                 arrival_dt = real_departure_dt + timedelta(minutes=g_acc[end_point]) # Fecha de llegada como la suma de la fecha de salida y el tiempo total de viaje
+                locale.setlocale(locale.LC_TIME,'es_ES.UTF-8')  # Configurar a la localización española para el uso de las fechas
                 real_departure_dt = real_departure_dt.strftime("%H:%M, %A, %d %B %Y") # Formato para la fecha de salida
                 arrival_dt = arrival_dt.strftime("%H:%M, %A, %d %B %Y") # Formato para la fecha de llegada
 
