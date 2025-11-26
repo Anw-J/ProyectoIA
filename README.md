@@ -12,7 +12,7 @@ Para poder ejecutar el programa, deberán disponer de las dependencias Flask y n
 python -m pip install flask networkx
 ```
 
-## Uso
+## Ejecución
 Deberán situarse en la carpeta src del programa, que es donde está el punto de entrada main.py, para ejecutar:
 ```bash
 py main.py
