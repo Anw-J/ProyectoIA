@@ -31,12 +31,13 @@ class Al:
     '''
     def astar_algorithm(self, graph, start_point, end_point, departure_date, departure_time):
         methods = Methods(Data()) # Instancia de la clase Methods
+        locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8') # Configurar a la localización española para el uso de las fechas
 
         dt = datetime.strptime(f"{departure_date} {departure_time}", "%d %B %Y %H:%M") # Fecha y hora de salida
         weekday = dt.weekday() # Día de la semana (0 -> lunes, 6 -> domingo)
-        openning = self.opening_time.get(weekday) # Hora de apertura de ese día de la semana
+        opening = self.opening_time.get(weekday) # Hora de apertura de ese día de la semana
         dt_in_minutes = dt.hour * 60 + dt.minute # Hora de salida en minutos desde medianoche
-        real_departure_minutes = max(dt_in_minutes, openning) # Hora real de salida: Si es antes de la apertura, se ajusta a la hora de apertura
+        real_departure_minutes = max(dt_in_minutes, opening) # Hora real de salida: Si es antes de la apertura, se ajusta a la hora de apertura
         real_departure_dt = dt.replace(hour=real_departure_minutes // 60, minute=real_departure_minutes % 60) # Fecha y hora real de salida
 
         open_list = [(0, start_point)]  # Cola con prioridad - (f, node)
@@ -83,7 +84,6 @@ class Al:
                 times.reverse()
 
                 arrival_dt = real_departure_dt + timedelta(minutes=g_acc[end_point]) # Fecha de llegada como la suma de la fecha de salida y el tiempo total de viaje
-                locale.setlocale(locale.LC_TIME,'es_ES.UTF-8')  # Configurar a la localización española para el uso de las fechas
                 real_departure_dt = real_departure_dt.strftime("%H:%M, %A, %d %B %Y") # Formato para la fecha de salida
                 arrival_dt = arrival_dt.strftime("%H:%M, %A, %d %B %Y") # Formato para la fecha de llegada
 
@@ -99,7 +99,7 @@ class Al:
                     possible_g += self.transshipment # Sumar a g el tiempo de trasbordo
                     interval_between = methods.get_line_interval(int(line_between)) # Intervalo de tiempo entre trenes de una línea (tiempo de espera hasta la llegada del nuevo tren)
                     if interval_between is not None:
-                        possible_g += (interval_between - (g_acc[current] % interval_between)) % interval_between # Sumar el tiempo de espera hasta la llegada del nuevo tren
+                        possible_g += ((interval_between - (real_departure_minutes + g_acc[current] - opening) % interval_between)) % interval_between # Sumar el tiempo de espera hasta la llegada del nuevo tren
 
                 if possible_g < g_acc[n]: # Si la g calculada es menor que la g acumulada del vecino
                     visited[n] = (current, has_trasnshipment) # Actualizar el predecesor
